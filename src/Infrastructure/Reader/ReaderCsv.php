@@ -9,6 +9,7 @@ class ReaderCsv implements ReaderInterface
     public function getData(string $filePath): array
     {
         $keys = [];
+        $data = [];
 
         try {
             if (($handle = fopen($filePath, "r")) !== false) {

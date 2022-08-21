@@ -11,8 +11,7 @@ class ReaderXml implements ReaderInterface
         try {
             $string = file_get_contents($filePath);
             $xmlObj = simplexml_load_string($string);
-            $encode = json_encode($xmlObj, JSON_NUMERIC_CHECK);
-            $arr = json_decode($encode, true);
+            $arr = json_decode(json_encode($xmlObj, JSON_NUMERIC_CHECK), true);
 
             $result = array_column($arr, 'result')[0];
         } catch (Exception $e) {
